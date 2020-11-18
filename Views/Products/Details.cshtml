@@ -1,0 +1,30 @@
+﻿@model Stores.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4 class="mb-4 mt-4 text-black-50">Product Details</h4>
+<h4 class="mb-4 mt-4 text-black-50 text-capitalize text-center" >Product Name: @Model.Name</h4>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6 col-md-6 col-lg-4">
+        <img src="@Model.ThumbNail" alt="Single_product_Image" class="img-thumbnail" />
+    </div>
+    <br />
+    <div class="col-md-6 col-md-6 col-lg-6">
+        <p class="text-black-50">@Model.LongDescription</p>
+        <div class="footer-content">
+            <p class="text-black-50">Product ID : @Model.Id</p>
+            <p class="text-black-50">Catgory ID : @Model.CategoryID</p>
+            <p class="text-black-50">Product Category :  @Model.Category.Name</p>
+        </div>
+        <div class="footer-content">
+            <span class="text-black-50">@Model.Price.ToString("c")</span>
+            <br />
+            <a class="btn btn-outline-danger" asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-productId="@Model.Id">Add to Cart</a> |
+            <a class="btn btn-dark" asp-action="Index" asp-controller="Products"> Back </a>
+        </div>
+    </div>
+</div>

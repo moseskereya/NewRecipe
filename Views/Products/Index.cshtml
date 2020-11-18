@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Stores.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-black-50 footer-content">
+    <div>
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color">
+                <p>
+                    Find by name: <input type="text" name="SearchString" placeholder="Search Products" value="@ViewData["CurrentFilter"]" />
+                </p>
+            </div>
+        </form>
+    </div>
+    <div>
+        <input type="submit" value="Search" class="btn btn-default" /> |
+        <a asp-action="Index">Back to Full List</a>
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-md-3 col-md-3 col-lg-3 thumbnail mt-4">
+        <span class="text-uppercase pb-4  text-black-50">
+            @item.Name
+        </span>
+        <a asp-action="Details" asp-route-id="@item.Id">
+            <img src="@item.Imgurl" class="img-thumbnail images" alt="Product_img" />
+        </a>
+        <div class="card-footer">
+            <div class="footer-content">
+                <span class="text-black-50">Price</span>
+                <span class="text-black-50">@item.Price.ToString("c")</span>
+            </div>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,13 @@
+﻿@model ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Summary";
+}
+
+@if (Model.ShoppingCart.shoppingCartItems.Count >  0)
+{
+    <li  class="nav-item">
+        <a  class="nav-link" asp-controller="ShoppingCart" asp-action="Index">
+            Cart<span>@Model.ShoppingCart.shoppingCartItems.Count</span>
+        </a>
+    </li>
+}

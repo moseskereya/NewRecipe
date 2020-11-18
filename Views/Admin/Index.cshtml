@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Stores.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin Page</h1>
+
+<p class="footer-content">
+    <a asp-action="Create" class="btn btn-dark">Add Recipe</a>
+    <br />
+    <a asp-action="Edit" class="btn btn-outline-danger" asp-route-id="@Model">Edit Recipe</a>
+</p> 
